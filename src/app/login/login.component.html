@@ -1,9 +1,44 @@
-<h3><i>Prijava master rada</i></h3>
-<hr>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="../../assets/logoETF.png" class="logoETF" />
 
-<h2>Prijavite se</h2>
-Korisnicko ime: <input type='text' name='korisnickoIme' [(ngModel)]='korisnickoIme'>
-<br/>
-Lozinka: <input type='text' name='lozinka' [(ngModel)]='lozinka'>
-<br/>
-<button (click)='prijava()'>Prijavi se</button>
+    <h1><i>Prijava teme za izradu master rada</i></h1>
+    <hr />
+
+    <h2>Prijavite se</h2>
+    <form>
+      <p>Korisničko ime:</p>
+      <br />
+      <input
+        type="text"
+        name="korisnickoIme"
+        [(ngModel)]="korisnickoIme"
+        class="inputStyle"
+      />
+      <br /><br />
+      <p>Lozinka:</p>
+      <br />
+      <input
+        type="text"
+        name="lozinka"
+        [(ngModel)]="lozinka"
+        class="inputStyle"
+      />
+      <br /><br />
+      <input
+        type="button"
+        name="prijava"
+        value="Prijavi se"
+        (click)="prijava()"
+        class="loginButton"
+      />
+    </form>
+  </body>
+</html>

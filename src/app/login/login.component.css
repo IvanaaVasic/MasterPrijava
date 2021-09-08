@@ -46,9 +46,10 @@ p {
   background-color: white;
   padding: 5px 5px;
   transition: width 0.4s ease-in-out;
+  position: fixed;
 }
 .inputStyle:focus {
-  width: 100%;
+  width: 280px;
 }
 .loginButton {
   width: 180px;

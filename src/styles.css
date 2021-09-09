@@ -8,3 +8,48 @@ body {
 .logoETF {
   height: 170px;
 }
+.general-form {
+  width: 800px;
+  height: auto;
+  background: #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 0 22px -10px #000;
+  margin: 40px 0px;
+  padding: 20px 30px;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+.header {
+  text-align: center;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  width: auto;
+  color: #83161a;
+}
+.labelInput:before {
+  content: attr(type);
+  display: block;
+  margin: 28px 0 0;
+  font-size: 14px;
+  color: #504f4f;
+}
+.btn {
+  width: 120px;
+  float: right;
+  padding: 8px 12px;
+  margin: 40px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  border-radius: 4px;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #83161a;
+  color: #fff;
+  border: 2px solid #83161a;
+}

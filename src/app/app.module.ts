@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PrijavaTemeComponent } from './prijava-teme/prijava-teme.component';
 import { ObrazlozenjeComponent } from './obrazlozenje/obrazlozenje.component';
+import { BiografijaComponent } from './biografija/biografija.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PrijavaTemeComponent,
-    ObrazlozenjeComponent
+    ObrazlozenjeComponent,
+    BiografijaComponent
   ],
   imports: [
     BrowserModule,

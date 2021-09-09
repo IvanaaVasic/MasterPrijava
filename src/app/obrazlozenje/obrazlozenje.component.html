@@ -1,6 +1,6 @@
 <div class="obrazlozenje-container">
   <img src="../../assets/logoETF.png" class="logoETF" />
-  <form class="obrazlozenje-form">
+  <form class="obrazlozenje-form general-form">
     <h2 class="header-obrazlozenje header">Obrazloženje teme</h2>
     <div class="labelInput" type="Kandidat:">
       <input type="text" name="imePrezime" />
@@ -29,7 +29,7 @@
       <input
         type="text"
         name="oblastRada"
-        placeholder="Navedena tema master radapripada oblasti..."
+        placeholder="Navedena tema master rada pripada oblasti..."
       />
     </div>
     <div class="labelInput" type="Predmet, cilj i metode master rada:">
@@ -40,7 +40,7 @@
     </div>
     <input
       type="button"
-      class="btn-send-obrazac"
+      class="btn-send-obrazac btn"
       (click)="posaljiObrazac()"
       value="Nastavi dalje"
     />

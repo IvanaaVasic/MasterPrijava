@@ -1,0 +1,21 @@
+<div class="biografija-container">
+  <img src="../../assets/logoETF.png" class="logoETF" />
+  <form class="obrazlozenje-form general-form">
+    <h2 class="header-obrazlozenje header">Biografija</h2>
+    <div class="labelInput" type="Biografija:">
+      <textarea
+        class="biografija"
+        name="biografija"
+        rows="10"
+        cols="50"
+        placeholder="Biografski podaci kandidata"
+      ></textarea>
+    </div>
+    <input
+      type="button"
+      class="btn-send-biografija btn"
+      (click)="posaljiBiografiju()"
+      value="Nastavi dalje"
+    />
+  </form>
+</div>

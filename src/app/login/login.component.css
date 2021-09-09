@@ -5,9 +5,7 @@
   flex-direction: column;
   align-items: center;
 }
-
 .logoETF {
-  height: 170px;
   animation-duration: 3s;
   animation-name: slidein;
 }

@@ -9,7 +9,7 @@
       <input type="text" name="brojIndeksa" />
     </div>
     <div class="labelInput" type="Izborno područje master rada:">
-      <select name="Modul">
+      <select name="modul">
         <option value="0">Modul</option>
         <option value="1">Test</option>
         <option value="3">Test1</option>
@@ -63,8 +63,11 @@
       />
     </div>
 
-    <button class="btn-send-prijava" (click)="posaljiPrijavu()">
-      Pošalji prijavu
-    </button>
+    <input
+      type="button"
+      class="btn-send-prijava"
+      (click)="posaljiPrijavu()"
+      value="Nastavi dalje"
+    />
   </form>
 </div>

@@ -1,5 +1,4 @@
-html,
-body {
+.prijava-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,7 +27,6 @@ h2 {
   padding-bottom: 10px;
   width: auto;
   color: #83161a;
-  border-bottom: 3px solid #83161a;
 }
 
 input,
@@ -72,29 +70,14 @@ button {
   margin: 8px 0 0;
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
+  border-radius: 4px;
   background: 0;
   color: #5a5a6e;
   cursor: pointer;
   transition: all 0.3s;
 }
 button:hover {
-  background: #78788c;
+  background: #83161a;
   color: #fff;
-}
-
-div {
-  content: "Hi";
-  position: absolute;
-  bottom: -15px;
-  right: -20px;
-  background: #50505a;
-  color: #fff;
-  width: 320px;
-  padding: 16px 4px 16px 0;
-  border-radius: 6px;
-  font-size: 13px;
-  box-shadow: 10px 10px 40px -14px #000;
-}
-span {
-  margin: 0 5px 0 15px;
+  border: 2px solid #83161a;
 }

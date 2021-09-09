@@ -1,11 +1,9 @@
-html,
-body {
-  margin: 0 auto;
+.login-container {
+  margin: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e6e6e6;
 }
 
 .logoETF {
@@ -25,17 +23,19 @@ body {
     width: 170px;
   }
 }
-
+.login-form {
+  padding-bottom: 100px;
+}
 hr {
   width: 100px;
   background-color: black;
 }
-p {
+.loginFieldLabel {
   margin: 0px;
 }
 h1,
 h2,
-p {
+.loginFieldLabel {
   font-family: arial, sans-serif;
 }
 
@@ -48,7 +48,6 @@ p {
   background-color: white;
   padding: 5px 5px;
   transition: width 0.4s ease-in-out;
-  position: fixed;
 }
 .inputStyle:focus {
   width: 280px;

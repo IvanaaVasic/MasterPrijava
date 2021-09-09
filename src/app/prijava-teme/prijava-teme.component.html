@@ -1,47 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prijava</title>
-  </head>
-  <body>
-    <img src="../../assets/logoETF.png" class="logoETF" />
-    <form>
-      <h2>Prijava teme za izradu master rada</h2>
-      <p type="Ime i Prezime studenta:">
-        <input type="text" name="imePrezime" />
-      </p>
-      <p type="Broj indeksa:">
-        <input type="text" name="brojIndeksa" />
-      </p>
-      <p type="Izborno područje master rada:">
-        <select name="Modul">
-          <option value="0">Modul</option>
-          <option value="1">Test</option>
-          <option value="3">Test1</option>
-          <option value="4">Test2</option>
-          <option value="5">Test3</option>
-          <option value="6">Test4</option>
-        </select>
-      </p>
-      <p type="Ime i Prezime rukovodioca rada:">
-        <input
-          type="text"
-          name="brojIndeksa"
-          placeholder="Automatski ažurirano nakon izbora modula"
-        />
-      </p>
-      <p
-        type="Rukovodilac rada je angažovan na izbornom području master studija: "
-      >
-        <input type="radio" id="da" name="rukovodilacDa" value="Da" />  
-        <label for="html">Da</label>
-          <input type="radio" id="ne" name="rukovodilacNe" value="Ne" />  
-        <label for="css">Ne</label><br />
-      </p>
-      <button>Send Message</button>
-    </form>
-  </body>
-</html>
+<div class="prijava-container">
+  <img src="../../assets/logoETF.png" class="logoETF" />
+  <form>
+    <h2>Prijava teme za izradu master rada</h2>
+    <p type="Ime i Prezime studenta:">
+      <input type="text" name="imePrezime" />
+    </p>
+    <p type="Broj indeksa:">
+      <input type="text" name="brojIndeksa" />
+    </p>
+    <p type="Izborno područje master rada:">
+      <select name="Modul">
+        <option value="0">Modul</option>
+        <option value="1">Test</option>
+        <option value="3">Test1</option>
+        <option value="4">Test2</option>
+        <option value="5">Test3</option>
+        <option value="6">Test4</option>
+      </select>
+    </p>
+    <p type="Ime i Prezime rukovodioca rada:">
+      <input
+        type="text"
+        name="brojIndeksa"
+        placeholder="Automatski ažurirano nakon izbora modula"
+      />
+    </p>
+    <p
+      type="Rukovodilac rada je angažovan na izbornom području master studija: "
+    >
+      <input type="radio" id="da" name="rukovodilacChoice" value="Da" />  
+      <label for="html">Da</label>
+        <input type="radio" id="ne" name="rukovodilacChoice" value="Ne" />  
+      <label for="css">Ne</label><br />
+    </p>
+    <button>Pošalji prijavu</button>
+  </form>
+</div>

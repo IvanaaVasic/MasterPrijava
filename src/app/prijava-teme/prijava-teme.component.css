@@ -14,7 +14,7 @@
   background: #e6e6e6;
   border-radius: 8px;
   box-shadow: 0 0 22px -10px #000;
-  margin-top: 40px;
+  margin: 40px 0px;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
@@ -62,12 +62,12 @@ input:focus {
   display: block;
   margin: 28px 0 0;
   font-size: 14px;
-  color: #5a5a5a;
+  color: #504f4f;
 }
 .btn-send-prijava {
   float: right;
   padding: 8px 12px;
-  margin: 8px 0 0;
+  margin: 40px 0 0;
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
   border-radius: 4px;

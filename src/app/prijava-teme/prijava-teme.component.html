@@ -34,6 +34,35 @@
         <input type="radio" id="ne" name="rukovodilacChoice" value="Ne" />  
       <label class="label-radio" for="ne">Ne</label><br />
     </div>
+    <div
+      class="labelInput"
+      type="Rokovodilac rada nije angažovan na izbornom području master studija ali je kandidat kod njega položio predmet: "
+    >
+      <input
+        type="text"
+        name="rukovodilacPredmet"
+        placeholder="Uneti naziv predmeta"
+      />
+    </div>
+    <div
+      class="labelInput"
+      type="Naslov master rada na srpskom jeziku (napisan ćirilicom):"
+    >
+      <input type="text" name="naslovRadaSrpski" />
+    </div>
+    <div class="labelInput" type="Naslov master rada na engleskom jeziku:">
+      <input type="text" name="naslovRadaEngleski" />
+    </div>
+    <div class="labelInput" type="Predlog Komisije za pregled i ocenu:">
+      <input type="text" name="predlogKomisije1" placeholder="Mentor" />
+      <input type="text" name="predlogKomisije2" placeholder="Drugi član" />
+      <input
+        type="text"
+        name="predlogKomisije3"
+        placeholder="Treći član (opciono)"
+      />
+    </div>
+
     <button class="btn-send-prijava" (click)="posaljiPrijavu()">
       Pošalji prijavu
     </button>

@@ -12,4 +12,6 @@ export class PrijavaTemeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  posaljiPrijavu(){}
+
 }

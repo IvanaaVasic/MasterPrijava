@@ -8,7 +8,7 @@
 .logoETF {
   height: 170px;
 }
-form {
+.prijava-form {
   width: 800px;
   height: auto;
   background: #e6e6e6;
@@ -21,7 +21,7 @@ form {
   font-family: "Montserrat", sans-serif;
   position: relative;
 }
-h2 {
+.header-prijava {
   text-align: center;
   margin: 10px 0;
   padding-bottom: 10px;
@@ -53,18 +53,18 @@ input:focus {
   margin: 10px;
   width: auto;
 }
-label {
+.label-radio {
   font-size: 14px;
   color: #5a5a5a;
 }
-p:before {
+.labelInput:before {
   content: attr(type);
   display: block;
   margin: 28px 0 0;
   font-size: 14px;
   color: #5a5a5a;
 }
-button {
+.btn-send-prijava {
   float: right;
   padding: 8px 12px;
   margin: 8px 0 0;
@@ -76,7 +76,7 @@ button {
   cursor: pointer;
   transition: all 0.3s;
 }
-button:hover {
+.btn-send-prijava:hover {
   background: #83161a;
   color: #fff;
   border: 2px solid #83161a;

@@ -1,14 +1,14 @@
 <div class="prijava-container">
   <img src="../../assets/logoETF.png" class="logoETF" />
-  <form>
-    <h2>Prijava teme za izradu master rada</h2>
-    <p type="Ime i Prezime studenta:">
+  <form class="prijava-form">
+    <h2 class="header-prijava">Prijava teme za izradu master rada</h2>
+    <div class="labelInput" type="Ime i Prezime studenta:">
       <input type="text" name="imePrezime" />
-    </p>
-    <p type="Broj indeksa:">
+    </div>
+    <div class="labelInput" type="Broj indeksa:">
       <input type="text" name="brojIndeksa" />
-    </p>
-    <p type="Izborno područje master rada:">
+    </div>
+    <div class="labelInput" type="Izborno područje master rada:">
       <select name="Modul">
         <option value="0">Modul</option>
         <option value="1">Test</option>
@@ -17,22 +17,25 @@
         <option value="5">Test3</option>
         <option value="6">Test4</option>
       </select>
-    </p>
-    <p type="Ime i Prezime rukovodioca rada:">
+    </div>
+    <div class="labelInput" type="Ime i Prezime rukovodioca rada:">
       <input
         type="text"
         name="brojIndeksa"
         placeholder="Automatski ažurirano nakon izbora modula"
       />
-    </p>
-    <p
+    </div>
+    <div
+      class="labelInput"
       type="Rukovodilac rada je angažovan na izbornom području master studija: "
     >
       <input type="radio" id="da" name="rukovodilacChoice" value="Da" />  
-      <label for="html">Da</label>
+      <label class="label-radio" for="da">Da</label>
         <input type="radio" id="ne" name="rukovodilacChoice" value="Ne" />  
-      <label for="css">Ne</label><br />
-    </p>
-    <button>Pošalji prijavu</button>
+      <label class="label-radio" for="ne">Ne</label><br />
+    </div>
+    <button class="btn-send-prijava" (click)="posaljiPrijavu()">
+      Pošalji prijavu
+    </button>
   </form>
 </div>

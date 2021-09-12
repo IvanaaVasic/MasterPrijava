@@ -1,0 +1,57 @@
+.prijava-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #83161a;
+}
+input:focus {
+  border-bottom: 2px solid #78788c;
+}
+#da {
+  margin: 10px;
+  width: auto;
+}
+#ne {
+  margin: 10px;
+  width: auto;
+}
+.label-radio {
+  font-size: 14px;
+  color: #5a5a5a;
+}
+.btn-send-prijava {
+  width: 120px;
+  float: right;
+  padding: 8px 12px;
+  margin: 40px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  border-radius: 4px;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-send-prijava:hover {
+  background: #83161a;
+  color: #fff;
+  border: 2px solid #83161a;
+}
+.header-komisija {
+  margin-top: 50px;
+}

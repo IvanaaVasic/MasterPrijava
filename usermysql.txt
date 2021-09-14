@@ -1,0 +1,7 @@
+CREATE USER 'ickaa'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass';
+GRANT ALL PRIVILEGES ON *.* TO 'ickaa'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+//iskopirati ovaj kod iznad, kada otvorite nasu bazu u msq workbanch-u kliknete na bazu masterprijava, 
+kliknete dugme da otvorite novi fajl i iskopirate ovaj kod iznad, 
+selektujete ceo kod i run-ujete i onda ce i vama biti povezana baza

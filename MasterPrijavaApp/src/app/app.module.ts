@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PrijavaTemeComponent } from './prijava-teme/prijava-teme.component';
 import { ObrazlozenjeComponent } from './obrazlozenje/obrazlozenje.component';
 import { BiografijaComponent } from './biografija/biografija.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +16,10 @@ import { BiografijaComponent } from './biografija/biografija.component';
     LoginComponent,
     PrijavaTemeComponent,
     ObrazlozenjeComponent,
-    BiografijaComponent
+    BiografijaComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

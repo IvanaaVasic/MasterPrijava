@@ -1,6 +1,7 @@
 export class Korisnik {
-    ime: string;
-    korisnickoIme: string;
-    lozinka: string;
-    tip: string;
+    Id: number;
+	Ime: string;
+	KorisnickoIme: string;
+    Lozinka: string;
+    Tip: string;
 }

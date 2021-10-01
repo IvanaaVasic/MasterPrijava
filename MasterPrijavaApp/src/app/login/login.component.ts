@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Korisnik } from '../models/korisnik';
 import { LoginService } from '../services/login.service';
 
@@ -10,7 +11,7 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent implements OnInit {
   korisnici: Korisnik[];
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -18,7 +19,13 @@ export class LoginComponent implements OnInit {
   lozinka: string;
 
   login() {
-    console.log('zovem servis');
-    this.loginService.login(this.korisnickoIme, this.lozinka).subscribe();
+    this.loginService
+      .login(this.korisnickoIme, this.lozinka)
+      .subscribe((korisnik: Korisnik) => {
+        if (korisnik.Tip == 'student') {
+          this.router.navigate(['/prijava']);
+        }
+        // console.log(korisnik);
+      });
   }
 }

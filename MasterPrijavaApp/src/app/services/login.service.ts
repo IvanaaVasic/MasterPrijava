@@ -10,8 +10,6 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
-    console.log('zovem api');
-
     const requestData = {
       username: username,
       password: password,

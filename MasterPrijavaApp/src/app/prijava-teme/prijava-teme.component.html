@@ -3,13 +3,13 @@
   <form class="prijava-form general-form">
     <h2 class="header-prijava header">Prijava teme za izradu master rada</h2>
     <div class="labelInput" type="Ime i Prezime studenta:">
-      <input type="text" name="imePrezime" />
+      <input type="text" name="imePrezime" [(ngModel)]="imePrezime"/>
     </div>
     <div class="labelInput" type="Broj indeksa:">
-      <input type="text" name="brojIndeksa" />
+      <input type="text" name="brojIndeksa" [(ngModel)]="brojIndeksa" />
     </div>
     <div class="labelInput" type="Izborno područje master rada:">
-      <select name="modul">
+      <select name="modul" [(ngModel)]="modul">
         <option value="0">Modul</option>
         <option value="1">Test</option>
         <option value="3">Test1</option>
@@ -21,17 +21,18 @@
     <div class="labelInput" type="Ime i Prezime rukovodioca rada:">
       <input
         type="text"
-        name="brojIndeksa"
+        name="rukovodilac"
         placeholder="Automatski ažurirano nakon izbora modula"
+        [(ngModel)]="rukovodilac"
       />
     </div>
     <div
       class="labelInput"
       type="Rukovodilac rada je angažovan na izbornom području master studija: "
     >
-      <input type="radio" id="da" name="rukovodilacChoice" value="Da" />  
+      <input type="radio" id="da" name="rukovodilacChoice" value="Da" [(ngModel)]="rukovodilacChoice" />  
       <label class="label-radio" for="da">Da</label>
-        <input type="radio" id="ne" name="rukovodilacChoice" value="Ne" />  
+        <input type="radio" id="ne" name="rukovodilacChoice" value="Ne" [(ngModel)]="rukovodilacChoice" />  
       <label class="label-radio" for="ne">Ne</label><br />
     </div>
     <div
@@ -42,20 +43,21 @@
         type="text"
         name="rukovodilacPredmet"
         placeholder="Uneti naziv predmeta"
+        [(ngModel)]="nazivPredmetaRukovodioca"
       />
     </div>
     <div
       class="labelInput"
       type="Naslov master rada na srpskom jeziku (napisan ćirilicom):"
     >
-      <input type="text" name="naslovRadaSrpski" />
+      <input type="text" name="naslovRadaSrpski" [(ngModel)]="naslovCirilica" />
     </div>
     <div class="labelInput" type="Naslov master rada na engleskom jeziku:">
-      <input type="text" name="naslovRadaEngleski" />
+      <input type="text" name="naslovRadaEngleski" [(ngModel)]="naslovEngleski" />
     </div>
     <div class="labelInput" type="Predlog Komisije za pregled i ocenu:">
-      <input type="text" name="predlogKomisije1" placeholder="Mentor" />
-      <input type="text" name="predlogKomisije2" placeholder="Drugi član" />
+      <input type="text" name="predlogKomisije1" placeholder="Mentor" [(ngModel)]="clanKomisije1" />
+      <input type="text" name="predlogKomisije2" placeholder="Drugi član" [(ngModel)]="clanKomisije2" />
       <input
         type="text"
         name="predlogKomisije3"

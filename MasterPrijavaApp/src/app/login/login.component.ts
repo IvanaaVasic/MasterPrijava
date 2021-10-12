@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         if (korisnik.Tip == 'student') {
           this.router.navigate(['/prijava']);
         }
-        // console.log(korisnik);
+        localStorage.setItem('ulogovan', JSON.stringify(korisnik));
       });
   }
 }

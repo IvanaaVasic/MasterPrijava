@@ -53,4 +53,15 @@ app.post("/login", (req, res) => {
 
 app.get("/", (req, res) => {
   res.send("Zdravo!");
+
+  app.post('/posaljiPrijavu', (req, res) => {
+    connection.query('UPDATE prijava SET Ime i Prezime = ?, Broj Indeksa = ?, Modul = ?, Rukovodilac rada = ?, Naziv Predmeta Rukovodioca = ?, Naslov cirilica = ?, Naslov engleski = ?, Clan komisije 1 = ?, Clan komisije 2 = ? WHERE idprijava = ?',
+
+        [req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
+        req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
+        req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
+            if (err) throw err;
+            console.log(result.affectedRows);
+        });
+});
 });

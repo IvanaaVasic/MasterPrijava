@@ -54,14 +54,15 @@ app.post("/login", (req, res) => {
 app.get("/", (req, res) => {
   res.send("Zdravo!");
 
-  app.post('/posaljiPrijavu', (req, res) => {
-    connection.query('UPDATE prijava SET Ime i Prezime = ?, Broj Indeksa = ?, Modul = ?, Rukovodilac rada = ?, Naziv Predmeta Rukovodioca = ?, Naslov cirilica = ?, Naslov engleski = ?, Clan komisije 1 = ?, Clan komisije 2 = ? WHERE idprijava = ?',
-
+  app.put('/posaljiPrijavu', (req, res) => {
+    connection.query(`INSERT INTO Prijava VALUES (${imePrezime}, ${brojIndeksa}, ${Modul}, ${rukovodilac},` +
+     `${naslovCirilica}, ${naslovEngleski}, ${naslovCirilica}, ${clanKomisije1}, ${clanKomisije2})`)
         [req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
         req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
         req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
             if (err) throw err;
-            console.log(result.affectedRows);
-        });
+            console.log(res.affectedRows);
+        };
 });
+
 });

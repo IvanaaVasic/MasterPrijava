@@ -10,31 +10,13 @@ export class PrijavaService {
 
   constructor(private http: HttpClient) { }
 
-  posaljiPrijavu( 
-    imePrezime: string,
-    brojIndeksa: number,
-    modul: string,
-    rukovodilac: string,
-    rukovodilacChoice: string,
-    nazivPredmetaRukovodioca: string,
-    naslovCirilica: string,
-    naslovEngleski: string,
-    clanKomisije1: string,
-    clanKomisije2: string){
+  prijava: Prijava
 
-      const prijavaData = {
-    imePrezime: imePrezime,
-    brojIndeksa: brojIndeksa,
-    modul: modul,
-    rukovodilac: rukovodilac,
-    rukovodilacChoice: rukovodilacChoice,
-    nazivPredmetaRukovodioca: nazivPredmetaRukovodioca,
-    naslovCirilica: naslovCirilica,
-    naslovEngleski: naslovEngleski,
-    clanKomisije1: clanKomisije1,
-    clanKomisije2: clanKomisije2
-      };
-      return this.http.post(`${this.baseUri}/prijava`, prijavaData).subscribe
+  posaljiPrijavu(prijava: Prijava){
+
+      
+      
+      this.http.post(`${this.baseUri}/posaljiPrijavu`, prijava).subscribe
   }
 
 }

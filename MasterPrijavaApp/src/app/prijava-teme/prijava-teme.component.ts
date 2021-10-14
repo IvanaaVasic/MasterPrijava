@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrijavaService } from '../services/prijava.service';
 import { Router } from '@angular/router';
 import { Prijava } from '../models/prijava';
+import { Korisnik } from '../models/korisnik';
 
 @Component({
   selector: 'app-prijava-teme',
@@ -14,6 +15,7 @@ export class PrijavaTemeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  prijava: Prijava
 
   imePrezime: string;
   brojIndeksa: number;
@@ -26,15 +28,12 @@ export class PrijavaTemeComponent implements OnInit {
   clanKomisije1: string;
   clanKomisije2: string;
 
-  posaljiPrijavu(){
-    this.prijavaServis
-    .posaljiPrijavu(this.imePrezime, this.brojIndeksa, this.modul, 
-      this.rukovodilac, this.rukovodilacChoice, this.nazivPredmetaRukovodioca,
-      this.naslovCirilica, this.naslovEngleski, this.clanKomisije1, this.clanKomisije2)
-    .subscribe((prijava: Prijava) => {
-      
+  posaljiPrijavu() {
+    if (confirm("Da li zelite da prosledite Vasu prijavu?"))
+    this.prijavaServis.posaljiPrijavu(this.prijava)
+    //.subscribe((res: any) => {
           this.router.navigate(['/biografija']);
-    )};
+    };
    
     
 } 

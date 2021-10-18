@@ -17,7 +17,7 @@ export class PrijavaTemeComponent implements OnInit {
   }
  
 
-  prijava: Prijava
+  prijava: Prijava = new Prijava();
 
   imePrezime: string;
   brojIndeksa: number;

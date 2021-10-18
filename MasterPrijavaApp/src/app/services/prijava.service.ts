@@ -13,8 +13,6 @@ export class PrijavaService {
   prijava: Prijava
 
   posaljiPrijavu(prijava: Prijava){
-
-      
       
       this.http.post(`${this.baseUri}/posaljiPrijavu`, prijava).subscribe
   }

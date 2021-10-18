@@ -46,7 +46,7 @@ app.put('/posaljiPrijavu', (req, res) => {
     let clanKomisije1 = req.body.clanKomisije1;
     let clanKomisije2 = req.body.clanKomisije2;
     connection.query(`INSERT INTO prijava VALUES (${imePrezime}, ${brojIndeksa}, ${modul}, ${rukovodilac},` +
-        `${naslovCirilica}, ${naslovEngleski}, ${naslovCirilica}, ${clanKomisije1}, ${clanKomisije2})`)[req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
+        `${naslovCirilica}, ${naslovEngleski}, ${clanKomisije1}, ${clanKomisije2})`)[req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
         req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
         req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
         if (err)

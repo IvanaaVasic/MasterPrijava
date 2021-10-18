@@ -23,16 +23,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-// queries CRUD (create, read, update, delete)
 
-//Primer za get request sa BankAppa
-
-// app.get("/getKorisnici", (req, res) => {
-//   connection.query("SELECT * FROM korisnici", (err, rows) => {
-//     if (err) throw err;
-//     res.json(rows);
-//   });
-// });
 
 app.post("/login", (req, res) => {
   let username = req.body.username;
@@ -51,18 +42,28 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.put('/posaljiPrijavu', (req, res) => {
+  let imePrezime = req.body.imePrezime;
+  let brojIndeksa = req.body.brojIndeksa;
+  let modul = req.body.modul;
+  let rukovodilac = req.body.rukovodilac;
+  let naslovCirilica = req.body.naslovCirilica;
+  let naslovEngleski = req.body.naslovEngleski;
+  let clanKomisije1 = req.body.clanKomisije1;
+  let clanKomisije2 = req.body.clanKomisije2;
+
+
+  connection.query(`INSERT INTO prijava VALUES (${imePrezime}, ${brojIndeksa}, ${modul}, ${rukovodilac},` +
+   `${naslovCirilica}, ${naslovEngleski}, ${naslovCirilica}, ${clanKomisije1}, ${clanKomisije2})`)
+      [req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
+      req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
+      req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
+          if (err) throw err;
+          console.log(result.affectedRows);
+      };
+});
+
 app.get("/", (req, res) => {
   res.send("Zdravo!");
-
-  app.put('/posaljiPrijavu', (req, res) => {
-    connection.query(`INSERT INTO Prijava VALUES (${imePrezime}, ${brojIndeksa}, ${Modul}, ${rukovodilac},` +
-     `${naslovCirilica}, ${naslovEngleski}, ${naslovCirilica}, ${clanKomisije1}, ${clanKomisije2})`)
-        [req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
-        req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
-        req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
-            if (err) throw err;
-            console.log(res.affectedRows);
-        };
-});
 
 });

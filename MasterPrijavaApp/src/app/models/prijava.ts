@@ -1,4 +1,5 @@
 export class Prijava {
+    idprijava: number;
     imePrezime: string;
     brojIndeksa: number;
     modul: string;

@@ -15,6 +15,8 @@ export class PrijavaTemeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
+
   prijava: Prijava
 
   imePrezime: string;

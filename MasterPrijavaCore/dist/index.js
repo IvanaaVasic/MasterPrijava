@@ -7,8 +7,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const mysql_1 = __importDefault(require("mysql"));
-const app = express_1.default();
-app.use(cors_1.default());
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.listen(4000, (err) => {
     if (err) {
@@ -24,10 +24,9 @@ const connection = mysql_1.default.createConnection({
 });
 connection.connect();
 app.post("/login", (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+    const { username, password } = req.body;
     if (username && password) {
-        connection.query("SELECT * FROM korisnici WHERE KorisnickoIme = ? AND Lozinka = ?", [req.body.username, req.body.password], (err, result) => {
+        connection.query("SELECT * FROM korisnici WHERE KorisnickoIme = ? AND Lozinka = ?", [username, password], (err, result) => {
             if (err)
                 throw err;
             if (result.length === 1) {
@@ -36,25 +35,60 @@ app.post("/login", (req, res) => {
         });
     }
 });
-app.put('/posaljiPrijavu', (req, res) => {
-    let imePrezime = req.body.imePrezime;
-    let brojIndeksa = req.body.brojIndeksa;
-    let modul = req.body.modul;
-    let rukovodilac = req.body.rukovodilac;
-    let naslovCirilica = req.body.naslovCirilica;
-    let naslovEngleski = req.body.naslovEngleski;
-    let clanKomisije1 = req.body.clanKomisije1;
-    let clanKomisije2 = req.body.clanKomisije2;
-    connection.query(`INSERT INTO prijava VALUES (${imePrezime}, ${brojIndeksa}, ${modul}, ${rukovodilac},` +
-        `${naslovCirilica}, ${naslovEngleski}, ${clanKomisije1}, ${clanKomisije2})`)[req.body.imePrezime, req.body.brojIndeksa, req.body.Modul,
-        req.body.rukovodilac, req.body.naslovCirilica, req.body.naslovEngleski,
-        req.body.clanKomisije1, req.body.clanKomisije2], (err, result) => {
+app.put("/posaljiPrijavu", (req, res) => {
+    const { Id, ImePrezime, Indeks, Modul, Rukovodilac, RukovodilacAngazovan, RukovodilacPredmet, NaslovSrb, NaslovEng, PredlogMentor, PredlogDrugiClan, PredlogTreciClan, Biografija, Cilj, Sadrzaj, Predmet, Oblast, OcekivaniRezultat, } = req.body;
+    connection.query(`INSERT INTO prijava (
+      
+      ImePrezime,
+      Indeks,
+      Modul,
+      Rukovodilac,
+      RukovodilacAngazovan,
+      RukovodilacPredmet,
+      NaslovSrb,
+      NaslovEng,
+      PredlogMentor,
+      PredlogDrugiClan,
+      PredlogTreciClan,
+      Biografija,
+      Cilj,
+      Predmet,
+      Oblast,
+      OcekivaniRezultat 
+      ) VALUES (
+       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+      )`, [
+        ImePrezime,
+        Indeks,
+        Modul,
+        Rukovodilac,
+        RukovodilacAngazovan,
+        RukovodilacPredmet,
+        NaslovSrb,
+        NaslovEng,
+        PredlogMentor,
+        PredlogDrugiClan,
+        PredlogTreciClan,
+        Biografija,
+        Cilj,
+        Predmet,
+        Oblast,
+        OcekivaniRezultat,
+    ], (err, result) => {
         if (err)
             throw err;
         console.log(result.affectedRows);
-    };
+        res.send();
+    });
 });
 app.get("/", (req, res) => {
     res.send("Zdravo!");
+});
+app.get("/prijave", (req, res) => {
+    connection.query("SELECT * FROM Prijava", [], (err, result) => {
+        if (err)
+            throw err;
+        res.send(result);
+    });
 });
 //# sourceMappingURL=index.js.map

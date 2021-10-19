@@ -6,7 +6,7 @@ USE MasterPrijava;
 CREATE TABLE IF NOT EXISTS Korisnici (
 	Id	INTEGER,
 	Ime	VARCHAR(50),
-	KorisnickoIme	VARCHAR(20),
+	KorisnickoIme VARCHAR(20),
     Lozinka VARCHAR(32),
     Tip VARCHAR(20),
 	PRIMARY KEY(Id)
@@ -14,27 +14,33 @@ CREATE TABLE IF NOT EXISTS Korisnici (
 );
 
 CREATE TABLE IF NOT EXISTS Modul (
-	Id	INTEGER,
-	Naziv	VARCHAR(400),
+	Id		INTEGER,
+	Naziv 	VARCHAR(400),
 	RukovodiocId	INTEGER,
     FOREIGN KEY(RukovodiocId) REFERENCES Korisnici(Id),
 	PRIMARY KEY(Id)
 );
 
-CREATE TABLE IF NOT EXISTS Prijava (
-	Id	INTEGER,
-	Naslov	VARCHAR(100),
-	Cilj	VARCHAR(500),
-	Sadrzaj	VARCHAR(500),
-    KandidatId INTEGER,
-    MentorId INTEGER,
-    ModulId INTEGER,
-    `Status` VARCHAR(200),
-	FOREIGN KEY(KandidatId) REFERENCES Korisnici(Id),
-    FOREIGN KEY(MentorId) REFERENCES Korisnici(Id),
-    FOREIGN KEY(ModulId) REFERENCES Modul(Id),
-	PRIMARY KEY(Id)
-);
+	CREATE TABLE IF NOT EXISTS Prijava (
+		Id	INTEGER NOT NULL AUTO_INCREMENT,
+		ImePrezime VARCHAR(100),
+		Indeks VARCHAR(20),
+		Modul VARCHAR(400),
+		Rukovodilac VARCHAR(100),
+		RukovodilacAngazovan VARCHAR(5),
+		RukovodilacPredmet VARCHAR(200),
+		NaslovSrb	VARCHAR(200),
+		NaslovEng	VARCHAR (200),
+		PredlogMentor	VARCHAR(100),
+		PredlogDrugiClan	VARCHAR(100),
+		PredlogTreciClan	VARCHAR(100),
+		Biografija 	VARCHAR(1000),
+		Cilj	VARCHAR(500),
+		Predmet VARCHAR(200),
+		Oblast VARCHAR (1000),
+		OcekivaniRezultat VARCHAR (1000),
+		PRIMARY KEY(Id)
+	);
 
 
 

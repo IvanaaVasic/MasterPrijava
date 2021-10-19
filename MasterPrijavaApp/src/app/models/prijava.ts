@@ -1,14 +1,19 @@
 export class Prijava {
-    idprijava: number;
-    imePrezime: string;
-    brojIndeksa: number;
-    modul: string;
-    rukovodilac: string;
-    rukovodilacChoice: string;
-    nazivPredmetaRukovodioca: string;
-    naslovCirilica: string;
-    naslovEngleski: string;
-    clanKomisije1: string;
-    clanKomisije2: string;
-
+  Id: number;
+  ImePrezime: string;
+  Indeks: string;
+  Modul: string;
+  Rukovodilac: string;
+  RukovodilacAngazovan: string;
+  RukovodilacPredmet: string;
+  NaslovSrb: string;
+  NaslovEng: string;
+  PredlogMentor: string;
+  PredlogDrugiClan: string;
+  PredlogTreciClan: string;
+  Biografija: string;
+  Cilj: string;
+  Predmet: string;
+  Oblast: string;
+  OcekivaniRezultat: string;
 }

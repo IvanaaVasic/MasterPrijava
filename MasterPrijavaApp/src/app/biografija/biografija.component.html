@@ -8,13 +8,14 @@
         name="biografija"
         rows="10"
         cols="50"
+        [(ngModel)]="biografija"
         placeholder="Biografski podaci kandidata"
       ></textarea>
     </div>
     <input
       type="button"
       class="btn-send-biografija btn"
-      (click)="posaljiBiografiju()"
+      (click)="addBio()"
       value="Nastavi dalje"
     />
   </form>

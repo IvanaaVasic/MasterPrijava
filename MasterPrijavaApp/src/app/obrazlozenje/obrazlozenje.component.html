@@ -3,19 +3,23 @@
   <form class="obrazlozenje-form general-form">
     <h2 class="header-obrazlozenje header">Obrazloženje teme</h2>
     <div class="labelInput" type="Kandidat:">
-      <input type="text" name="imePrezime" />
+      <input type="text" name="imePrezime" [(ngModel)]="imePrezime" />
     </div>
     <div class="labelInput" type="Broj indeksa:">
-      <input type="text" name="brojIndeksaObrazlozenje" />
+      <input
+        type="text"
+        name="brojIndeksaObrazlozenje"
+        [(ngModel)]="brojIndeksa"
+      />
     </div>
     <div class="labelInput" type="Modul:">
-      <select name="modulObrazlozenje">
-        <option value="0">Modul</option>
-        <option value="1">Test</option>
-        <option value="3">Test1</option>
-        <option value="4">Test2</option>
-        <option value="5">Test3</option>
-        <option value="6">Test4</option>
+      <select name="modulObrazlozenje" [(ngModel)]="modul">
+        <option value="Modul">Modul</option>
+        <option value="Test">Test</option>
+        <option value="Test1">Test1</option>
+        <option value="Test2">Test2</option>
+        <option value="Test3">Test3</option>
+        <option value="Test4">Test4</option>
       </select>
     </div>
     <h2 class="header-komisija header">
@@ -23,26 +27,27 @@
     </h2>
 
     <div class="labelInput" type="Predmet:">
-      <input type="text" name="predmet" />
+      <input type="text" name="predmet" [(ngModel)]="predmet" />
     </div>
     <div class="labelInput" type="Oblast master rada:">
       <input
         type="text"
         name="oblastRada"
+        [(ngModel)]="oblast"
         placeholder="Navedena tema master rada pripada oblasti..."
       />
     </div>
     <div class="labelInput" type="Predmet, cilj i metode master rada:">
-      <input type="text" name="metodeRada" />
+      <input type="text" name="metodeRada" [(ngModel)]="cilj" />
     </div>
     <div class="labelInput" type="Sadržaj i očekivani rezultati master rada:">
-      <input type="text" name="metodeRada" />
+      <input type="text" name="metodeRada" [(ngModel)]="ocekivaniRezultat" />
     </div>
     <input
       type="button"
       class="btn-send-obrazac btn"
       (click)="posaljiObrazac()"
-      value="Nastavi dalje"
+      value="Posalji prijavu"
     />
   </form>
 </div>

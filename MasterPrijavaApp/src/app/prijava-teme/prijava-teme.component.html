@@ -19,12 +19,9 @@
       </select>
     </div>
     <div class="labelInput" type="Ime i Prezime rukovodioca rada:">
-      <input
-        type="text"
-        name="rukovodilac"
-        placeholder="Automatski ažurirano nakon izbora modula"
-        [(ngModel)]="rukovodilac"
-      />
+      <select name="rukovodilac" [(ngModel)]="idRukovodioca">
+        <option value="{{mentor.Id}}" *ngFor="let mentor of mentori">{{mentor.Ime}}</option>
+      </select>
     </div>
     <div
       class="labelInput"

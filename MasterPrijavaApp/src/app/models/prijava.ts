@@ -3,7 +3,8 @@ export class Prijava {
   ImePrezime: string;
   Indeks: string;
   Modul: string;
-  Rukovodilac: string;
+  IdRukovodioca: number;  
+  Rukovodilac: string; //TODO izbaciti posto je dodat Id!
   RukovodilacAngazovan: string;
   RukovodilacPredmet: string;
   NaslovSrb: string;

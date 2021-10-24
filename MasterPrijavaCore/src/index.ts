@@ -45,7 +45,8 @@ app.put("/posaljiPrijavu", (req, res) => {
     ImePrezime,
     Indeks,
     Modul,
-    Rukovodilac,
+    IdRukovodioca,
+    Rukovodilac,  //izbaciti
     RukovodilacAngazovan,
     RukovodilacPredmet,
     NaslovSrb,
@@ -67,6 +68,7 @@ app.put("/posaljiPrijavu", (req, res) => {
       ImePrezime,
       Indeks,
       Modul,
+      IdRukovodioca,
       Rukovodilac,
       RukovodilacAngazovan,
       RukovodilacPredmet,
@@ -81,12 +83,13 @@ app.put("/posaljiPrijavu", (req, res) => {
       Oblast,
       OcekivaniRezultat 
       ) VALUES (
-       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
       )`,
     [
       ImePrezime,
       Indeks,
       Modul,
+      IdRukovodioca,
       Rukovodilac,
       RukovodilacAngazovan,
       RukovodilacPredmet,
@@ -112,6 +115,13 @@ app.put("/posaljiPrijavu", (req, res) => {
 //Prijave koje su popunili studenti dohvatamo i dajemo mentoru podatke na uvid
 app.get("/prijave", (req, res) => {
   connection.query("SELECT * FROM Prijava", [], (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
+app.get("/mentori", (req, res) => {
+  connection.query("SELECT Id, Ime FROM korisnici WHERE Tip='mentor'", [], (err, result) => {
     if (err) throw err;
     res.send(result);
   });

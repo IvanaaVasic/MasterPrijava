@@ -10,14 +10,23 @@ import { Korisnik } from '../models/korisnik';
   styleUrls: ['./prijava-teme.component.css'],
 })
 export class PrijavaTemeComponent implements OnInit {
-  constructor(private prijavaServis: PrijavaService, private router: Router) {}
+  constructor(private prijavaServis: PrijavaService, private router: Router) {
+    this.mentori = []
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.prijavaServis.getMentori().subscribe((mentori: {Id: number, Ime: string}[]) => {
+      this.mentori = mentori;
+    });
+    
+  
+  }
 
+  mentori: {Id: number, Ime: string}[];
   imePrezime: string;
   brojIndeksa: string;
   modul: string;
-  rukovodilac: string;
+  idRukovodioca: string;
   rukovodilacChoice: string;
   nazivPredmetaRukovodioca: string;
   naslovCirilica: string;
@@ -33,7 +42,8 @@ export class PrijavaTemeComponent implements OnInit {
       prijava.ImePrezime = this.imePrezime;
       prijava.Indeks = this.brojIndeksa;
       prijava.Modul = this.modul;
-      prijava.Rukovodilac = this.rukovodilac;
+      prijava.IdRukovodioca = Number(this.idRukovodioca);
+      prijava.Rukovodilac = this.mentori.find(m => m.Id === Number(this.idRukovodioca)).Ime; // Izbaciti kad i polje iz modela prijava
       prijava.RukovodilacAngazovan = this.rukovodilacChoice;
       prijava.RukovodilacPredmet = this.nazivPredmetaRukovodioca;
       prijava.NaslovSrb = this.naslovCirilica;

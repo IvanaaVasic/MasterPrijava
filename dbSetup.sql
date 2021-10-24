@@ -75,7 +75,14 @@ INSERT INTO Modul (Id,Naziv,RukovodiocId) VALUES (3,'Informaciono komunikacione 
 INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId,ModulId) VALUES (1,'Angular primena na fakultetu','Bla bla nesto nesto','sadrzaj primer',2,3,2);
 INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId,ModulId) VALUES (2,'Mikrotalasi primena','Bla bla nestoooo nesto','sadrzaaaj primeriii',1,4,3);
 
-
+ALTER TABLE `masterprijava`.`prijava` 
+ADD COLUMN `IdRukovodioca` INT NULL AFTER `Modul`;
+ALTER TABLE `masterprijava`.`prijava` 
+ADD CONSTRAINT `IdRukovodioca`
+  FOREIGN KEY (`IdRukovodioca`)
+  REFERENCES `masterprijava`.`korisnici` (`Id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
 
 
 

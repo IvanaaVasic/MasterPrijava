@@ -43,4 +43,8 @@ export class PrijavaService {
   getPrijave() {
     return this.http.get(`${this.baseUri}/prijave`);
   }
+  
+  getMentori() {
+    return this.http.get(`${this.baseUri}/mentori`);
+  }
 }

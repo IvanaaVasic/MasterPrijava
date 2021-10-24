@@ -7,8 +7,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const mysql_1 = __importDefault(require("mysql"));
-const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+const app = express_1.default();
+app.use(cors_1.default());
 app.use(body_parser_1.default.json());
 app.listen(4000, (err) => {
     if (err) {
@@ -36,12 +36,14 @@ app.post("/login", (req, res) => {
     }
 });
 app.put("/posaljiPrijavu", (req, res) => {
-    const { Id, ImePrezime, Indeks, Modul, Rukovodilac, RukovodilacAngazovan, RukovodilacPredmet, NaslovSrb, NaslovEng, PredlogMentor, PredlogDrugiClan, PredlogTreciClan, Biografija, Cilj, Sadrzaj, Predmet, Oblast, OcekivaniRezultat, } = req.body;
+    const { Id, ImePrezime, Indeks, Modul, IdRukovodioca, Rukovodilac, //izbaciti
+    RukovodilacAngazovan, RukovodilacPredmet, NaslovSrb, NaslovEng, PredlogMentor, PredlogDrugiClan, PredlogTreciClan, Biografija, Cilj, Sadrzaj, Predmet, Oblast, OcekivaniRezultat, } = req.body;
     connection.query(`INSERT INTO prijava (
       
       ImePrezime,
       Indeks,
       Modul,
+      IdRukovodioca,
       Rukovodilac,
       RukovodilacAngazovan,
       RukovodilacPredmet,
@@ -56,11 +58,12 @@ app.put("/posaljiPrijavu", (req, res) => {
       Oblast,
       OcekivaniRezultat 
       ) VALUES (
-       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
       )`, [
         ImePrezime,
         Indeks,
         Modul,
+        IdRukovodioca,
         Rukovodilac,
         RukovodilacAngazovan,
         RukovodilacPredmet,
@@ -81,11 +84,16 @@ app.put("/posaljiPrijavu", (req, res) => {
         res.send();
     });
 });
-app.get("/", (req, res) => {
-    res.send("Zdravo!");
-});
+//Prijave koje su popunili studenti dohvatamo i dajemo mentoru podatke na uvid
 app.get("/prijave", (req, res) => {
     connection.query("SELECT * FROM Prijava", [], (err, result) => {
+        if (err)
+            throw err;
+        res.send(result);
+    });
+});
+app.get("/mentori", (req, res) => {
+    connection.query("SELECT Id, Ime FROM korisnici WHERE Tip='mentor'", [], (err, result) => {
         if (err)
             throw err;
         res.send(result);

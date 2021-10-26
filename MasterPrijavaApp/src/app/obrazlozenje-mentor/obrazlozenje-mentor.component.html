@@ -3,13 +3,17 @@
   <form class="obrazlozenje-form general-form">
     <h2 class="header-obrazlozenje header">Obrazloženje teme</h2>
     <div class="labelInput" type="Kandidat:">
-      <input type="text" name="imePrezime" />
+      <input type="text" name="imePrezime" [(ngModel)]="prijava.ImePrezime" />
     </div>
     <div class="labelInput" type="Broj indeksa:">
-      <input type="text" name="brojIndeksaObrazlozenje" />
+      <input
+        type="text"
+        name="brojIndeksaObrazlozenje"
+        [(ngModel)]="prijava.Indeks"
+      />
     </div>
     <div class="labelInput" type="Modul:">
-      <select name="modulObrazlozenje">
+      <select name="modulObrazlozenje" [(ngModel)]="prijava.Modul">
         <option value="Modul">Modul</option>
         <option value="Test">Test</option>
         <option value="Test1">Test1</option>
@@ -23,20 +27,25 @@
     </h2>
 
     <div class="labelInput" type="Predmet:">
-      <input type="text" name="predmet" />
+      <input type="text" name="predmet" [(ngModel)]="prijava.Predmet" />
     </div>
     <div class="labelInput" type="Oblast master rada:">
       <input
         type="text"
         name="oblastRada"
         placeholder="Navedena tema master rada pripada oblasti..."
+        [(ngModel)]="prijava.Oblast"
       />
     </div>
     <div class="labelInput" type="Predmet, cilj i metode master rada:">
-      <input type="text" name="metodeRada" />
+      <input type="text" name="cilj" [(ngModel)]="prijava.Cilj" />
     </div>
     <div class="labelInput" type="Sadržaj i očekivani rezultati master rada:">
-      <input type="text" name="metodeRada" />
+      <input
+        type="text"
+        name="ocekivaniRezultat"
+        [(ngModel)]="prijava.OcekivaniRezultat"
+      />
     </div>
     <input
       type="button"

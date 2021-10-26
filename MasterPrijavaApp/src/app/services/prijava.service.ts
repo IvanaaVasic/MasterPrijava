@@ -10,7 +10,10 @@ export class PrijavaService {
 
   constructor(private http: HttpClient) {}
 
-  // Prijava koja se koristi da se napravi nonva i posalje u bazu
+  // [mentor] Sve prijave koje ce da se ucitaju kada mentor izlistava prijave
+  svePrijave: Prijava[]; // undefined
+
+  // [student] Prijava koja se koristi da se napravi nova i posalje u bazu
   prijava: Prijava = null;
 
   /**
@@ -43,8 +46,12 @@ export class PrijavaService {
   getPrijave() {
     return this.http.get(`${this.baseUri}/prijave`);
   }
-  
+
   getMentori() {
     return this.http.get(`${this.baseUri}/mentori`);
+  }
+
+  getPrijavaById(id: number) {
+    return this.svePrijave.find((p) => p.Id === id);
   }
 }

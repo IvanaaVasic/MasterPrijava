@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Prijava } from '../models/prijava';
 import { PrijavaService } from '../services/prijava.service';
 
 @Component({
@@ -17,12 +18,13 @@ export class MentorComponent implements OnInit {
   }
 
   ucitajPrijave() {
-    this.prijavaServis.getPrijave().subscribe((lista) => {
+    this.prijavaServis.getPrijave().subscribe((lista: Prijava[]) => {
       this.listaPrijava = lista;
+      this.prijavaServis.svePrijave = lista;
     });
   }
-  prikaziPrijavu(prijava) {
-    console.log(prijava);
-    this.router.navigate(['/prijavaMentor']);
+
+  prikaziPrijavu(prijava: Prijava) {
+    this.router.navigate([`/prijavaMentor/${prijava.Id}`]);
   }
 }

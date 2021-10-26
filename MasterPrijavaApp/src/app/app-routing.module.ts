@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'biografija', component: BiografijaComponent },
   { path: 'mentor', component: MentorComponent },
   { path: 'uspesno', component: UspesnaPrijavaComponent },
-  { path: 'prijavaMentor', component: PrijavaMentorComponent },
-  { path: 'biografijaMentor', component: BiografijaMentorComponent },
-  { path: 'obrazlozenjeMentor', component: ObrazlozenjeMentorComponent },
+  { path: 'prijavaMentor/:id', component: PrijavaMentorComponent },
+  { path: 'biografijaMentor/:id', component: BiografijaMentorComponent },
+  { path: 'obrazlozenjeMentor/:id', component: ObrazlozenjeMentorComponent },
 ];
 
 @NgModule({

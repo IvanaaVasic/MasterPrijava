@@ -20,7 +20,6 @@ export class BiografijaMentorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.prijava = this.prijavaService.getPrijavaById(parseInt(params.id));
-      console.log(this.prijava);
     });
   }
   bioNext() {

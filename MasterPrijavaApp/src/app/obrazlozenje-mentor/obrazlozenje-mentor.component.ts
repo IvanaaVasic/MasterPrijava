@@ -19,7 +19,6 @@ export class ObrazlozenjeMentorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.prijava = this.prijavaService.getPrijavaById(parseInt(params.id));
-      console.log(this.prijava);
     });
   }
   obrazacEnd() {}

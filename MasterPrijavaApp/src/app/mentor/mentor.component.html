@@ -1,27 +1,35 @@
-<div class="mentor-header">
+<div class="container">
+  <div class="mentor-header">
     <img src="../../assets/logoETF.png" class="logoETF" />
-</div>
-<div class="prijave-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Broj indeksa</th>
-                <th>Kandidat</th>
-                <th>Modul</th>
-                <th>Predmet</th>
-                <th>Pogledaj prijavu</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let prijava of listaPrijava">
-                <td>{{ prijava.Indeks }}</td>
-                <td>{{ prijava.ImePrezime }}</td>
-                <td>{{ prijava.Modul }}</td>
-                <td>{{ prijava.Predmet }}</td>
-                <td>
-                    <button type="button" (click)="prikaziPrijavu(prijava)">Detalji</button>
-                </td>
-            </tr>
-        </tbody>
+  </div>
+  <div class="prijave-table">
+    <table id="prijavljeni">
+      <thead>
+        <tr>
+          <th>Broj indeksa</th>
+          <th>Kandidat</th>
+          <th>Modul</th>
+          <th>Predmet</th>
+          <th>Pogledaj prijavu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prijava of listaPrijava">
+          <td>{{ prijava.Indeks }}</td>
+          <td>{{ prijava.ImePrezime }}</td>
+          <td>{{ prijava.Modul }}</td>
+          <td>{{ prijava.Predmet }}</td>
+          <td>
+            <button
+              type="button"
+              (click)="prikaziPrijavu(prijava)"
+              class="detalji"
+            >
+              Detalji
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>

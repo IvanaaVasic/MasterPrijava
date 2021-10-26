@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PrijavaService } from '../services/prijava.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { PrijavaService } from '../services/prijava.service';
   styleUrls: ['./obrazlozenje.component.css'],
 })
 export class ObrazlozenjeComponent implements OnInit {
-  constructor(private prijavaService: PrijavaService) {}
+  constructor(private prijavaService: PrijavaService, private router: Router) {}
 
   ngOnInit(): void {
     this.brojIndeksa = this.prijavaService.prijava.Indeks;
@@ -35,6 +36,8 @@ export class ObrazlozenjeComponent implements OnInit {
       .subscribe((response) => {
         console.log('Vraceni odgobor je: ' + response);
       });
+
+    this.router.navigate(['/uspesno']);
   }
 }
 

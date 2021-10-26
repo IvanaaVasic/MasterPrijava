@@ -10,6 +10,10 @@ import { ObrazlozenjeComponent } from './obrazlozenje/obrazlozenje.component';
 import { BiografijaComponent } from './biografija/biografija.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MentorComponent } from './mentor/mentor.component';
+import { UspesnaPrijavaComponent } from './uspesna-prijava/uspesna-prijava.component';
+import { PrijavaMentorComponent } from './prijava-mentor/prijava-mentor.component';
+import { BiografijaMentorComponent } from './biografija-mentor/biografija-mentor.component';
+import { ObrazlozenjeMentorComponent } from './obrazlozenje-mentor/obrazlozenje-mentor.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,10 @@ import { MentorComponent } from './mentor/mentor.component';
     ObrazlozenjeComponent,
     BiografijaComponent,
     MentorComponent,
+    UspesnaPrijavaComponent,
+    PrijavaMentorComponent,
+    BiografijaMentorComponent,
+    ObrazlozenjeMentorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

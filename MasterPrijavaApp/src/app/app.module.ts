@@ -9,6 +9,7 @@ import { PrijavaTemeComponent } from './prijava-teme/prijava-teme.component';
 import { ObrazlozenjeComponent } from './obrazlozenje/obrazlozenje.component';
 import { BiografijaComponent } from './biografija/biografija.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MentorComponent } from './mentor/mentor.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     PrijavaTemeComponent,
     ObrazlozenjeComponent,
     BiografijaComponent,
+    MentorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

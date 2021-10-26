@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
         if (korisnik.Tip == 'student') {
           this.router.navigate(['/prijava']);
         }
+        if (korisnik.Tip == 'mentor') {
+          this.router.navigate(['/mentor'])
+        }
+       // else alert('Netacni podaci ili nepostojeci korisnik. Molimo obratite se studentskoj sluzbi')
         localStorage.setItem('ulogovan', JSON.stringify(korisnik));
       });
   }

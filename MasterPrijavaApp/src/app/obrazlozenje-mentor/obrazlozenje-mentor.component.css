@@ -44,3 +44,9 @@ input:focus {
 .header-komisija {
   margin-top: 50px;
 }
+.komentar {
+  border: 2px solid #83161a;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 20px;
+}

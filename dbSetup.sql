@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Modul (
 		Predmet VARCHAR(200),
 		Oblast VARCHAR (1000),
 		OcekivaniRezultat VARCHAR (1000),
+		KomentarMentora VARCHAR (2000)
 		PRIMARY KEY(Id)
 	);
 

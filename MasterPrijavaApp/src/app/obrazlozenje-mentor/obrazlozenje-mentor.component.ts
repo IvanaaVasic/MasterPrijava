@@ -21,5 +21,5 @@ export class ObrazlozenjeMentorComponent implements OnInit {
       this.prijava = this.prijavaService.getPrijavaById(parseInt(params.id));
     });
   }
-  obrazacEnd() {}
+  posaljiKomentar() {}
 }

@@ -47,11 +47,20 @@
         [(ngModel)]="prijava.OcekivaniRezultat"
       />
     </div>
+    <div class="labelInput" type="Komentar za prijavu:">
+      <textarea
+        class="komentar"
+        name="komentar"
+        rows="10"
+        cols="50"
+        placeholder="Napišite komentar studentu za poslatu prijavu..."
+      ></textarea>
+    </div>
     <input
       type="button"
       class="btn-send-obrazac btn"
-      (click)="obrazacEnd()"
-      value="Posalji prijavu"
+      (click)="posaljiKomentar()"
+      value="Posalji komentar"
     />
   </form>
 </div>

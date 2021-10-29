@@ -11,18 +11,18 @@ import { Korisnik } from '../models/korisnik';
 })
 export class PrijavaTemeComponent implements OnInit {
   constructor(private prijavaServis: PrijavaService, private router: Router) {
-    this.mentori = []
+    this.mentori = [];
   }
 
   ngOnInit(): void {
-    this.prijavaServis.getMentori().subscribe((mentori: {Id: number, Ime: string}[]) => {
-      this.mentori = mentori;
-    });
-    
-  
+    this.prijavaServis
+      .getMentori()
+      .subscribe((mentori: { Id: number; Ime: string }[]) => {
+        this.mentori = mentori;
+      });
   }
 
-  mentori: {Id: number, Ime: string}[];
+  mentori: { Id: number; Ime: string }[];
   imePrezime: string;
   brojIndeksa: string;
   modul: string;
@@ -43,7 +43,9 @@ export class PrijavaTemeComponent implements OnInit {
       prijava.Indeks = this.brojIndeksa;
       prijava.Modul = this.modul;
       prijava.IdRukovodioca = Number(this.idRukovodioca);
-      prijava.Rukovodilac = this.mentori.find(m => m.Id === Number(this.idRukovodioca)).Ime; // Izbaciti kad i polje iz modela prijava
+      prijava.Rukovodilac = this.mentori.find(
+        (m) => m.Id === Number(this.idRukovodioca)
+      ).Ime; // Izbaciti kad i polje iz modela prijava
       prijava.RukovodilacAngazovan = this.rukovodilacChoice;
       prijava.RukovodilacPredmet = this.nazivPredmetaRukovodioca;
       prijava.NaslovSrb = this.naslovCirilica;
@@ -53,13 +55,8 @@ export class PrijavaTemeComponent implements OnInit {
       prijava.PredlogTreciClan = this.clanKomisije2;
 
       this.prijavaServis.startPrijava(prijava);
-
-      //  this.prijavaServis.posaljiPrijavu(prijava).subscribe((response) => {
-      //    console.log(response)
-      //  })
     }
 
-    //.subscribe((res: any) => {
     this.router.navigate(['/biografija']);
   }
 }

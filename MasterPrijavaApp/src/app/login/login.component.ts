@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Korisnik } from '../models/korisnik';
+import { Prijava } from '../models/prijava';
 import { LoginService } from '../services/login.service';
+import { PrijavaService } from '../services/prijava.service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,9 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   korisnici: Korisnik[];
-
-  constructor(private loginService: LoginService, private router: Router) {}
-
+  
+  constructor(private loginService: LoginService, private router: Router, private prijavaServis: PrijavaService) {}
+  
   ngOnInit(): void {}
 
   korisnickoIme: string;
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
       .login(this.korisnickoIme, this.lozinka)
       .subscribe((korisnik: Korisnik) => {
         if (korisnik.Tip == 'student') {
-          this.router.navigate(['/prijava']);
+          this.ucitajPrijave(korisnik);          
         }
         if (korisnik.Tip == 'mentor') {
           this.router.navigate(['/mentor'])
@@ -31,5 +33,18 @@ export class LoginComponent implements OnInit {
        // else alert('Netacni podaci ili nepostojeci korisnik. Molimo obratite se studentskoj sluzbi')
         localStorage.setItem('ulogovan', JSON.stringify(korisnik));
       });
+  }
+
+
+  ucitajPrijave(korisnik: Korisnik) {
+    this.prijavaServis.getPrijave().subscribe((lista: Prijava[]) => {     
+      this.prijavaServis.svePrijave = lista;
+      let prijava = this.prijavaServis.getPrijavaByStudentId(korisnik.Id);
+      if (prijava){
+        this.router.navigate(['pregled-prijave']);        
+      } else{
+        this.router.navigate(['/prijava']);
+      }    
+    });
   }
 }

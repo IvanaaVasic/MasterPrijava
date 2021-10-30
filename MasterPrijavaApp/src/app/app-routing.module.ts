@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { ObrazlozenjeMentorComponent } from './obrazlozenje-mentor/obrazlozenje-mentor.component';
 import { ObrazlozenjeComponent } from './obrazlozenje/obrazlozenje.component';
+import { PregledPrijaveComponent } from './pregled-prijave/pregled-prijave.component';
 import { PrijavaMentorComponent } from './prijava-mentor/prijava-mentor.component';
 import { PrijavaTemeComponent } from './prijava-teme/prijava-teme.component';
 import { UspesnaPrijavaComponent } from './uspesna-prijava/uspesna-prijava.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'prijavaMentor/:id', component: PrijavaMentorComponent },
   { path: 'biografijaMentor/:id', component: BiografijaMentorComponent },
   { path: 'obrazlozenjeMentor/:id', component: ObrazlozenjeMentorComponent },
+  { path: 'pregled-prijave', component: PregledPrijaveComponent },
 ];
 
 @NgModule({

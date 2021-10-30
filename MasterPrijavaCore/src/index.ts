@@ -60,6 +60,7 @@ app.put("/posaljiPrijavu", (req, res) => {
     Predmet,
     Oblast,
     OcekivaniRezultat,
+    studentId, 
   } = req.body;
 
   connection.query(
@@ -81,7 +82,8 @@ app.put("/posaljiPrijavu", (req, res) => {
       Cilj,
       Predmet,
       Oblast,
-      OcekivaniRezultat 
+      OcekivaniRezultat,
+      studentId
       ) VALUES (
        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
       )`,
@@ -103,6 +105,7 @@ app.put("/posaljiPrijavu", (req, res) => {
       Predmet,
       Oblast,
       OcekivaniRezultat,
+      studentId,
     ],
     (err, result) => {
       if (err) throw err;

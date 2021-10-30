@@ -17,4 +17,5 @@ export class Prijava {
   Predmet: string;
   Oblast: string;
   OcekivaniRezultat: string;
+  studentId: number;
 }

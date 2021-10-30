@@ -14,6 +14,7 @@ import { UspesnaPrijavaComponent } from './uspesna-prijava/uspesna-prijava.compo
 import { PrijavaMentorComponent } from './prijava-mentor/prijava-mentor.component';
 import { BiografijaMentorComponent } from './biografija-mentor/biografija-mentor.component';
 import { ObrazlozenjeMentorComponent } from './obrazlozenje-mentor/obrazlozenje-mentor.component';
+import { PregledPrijaveComponent } from './pregled-prijave/pregled-prijave.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ObrazlozenjeMentorComponent } from './obrazlozenje-mentor/obrazlozenje-
     PrijavaMentorComponent,
     BiografijaMentorComponent,
     ObrazlozenjeMentorComponent,
+    PregledPrijaveComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

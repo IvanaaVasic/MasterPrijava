@@ -53,5 +53,13 @@ export class PrijavaService {
 
   getPrijavaById(id: number) {
     return this.svePrijave.find((p) => p.Id === id);
+
+    
+  }
+
+  getPrijavaByStudentId(id: number) {
+
+    return this.svePrijave.find((p) => p.studentId === id);
+    
   }
 }

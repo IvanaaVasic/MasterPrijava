@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrijavaService } from '../services/prijava.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Prijava } from '../models/prijava';
 import { Korisnik } from '../models/korisnik';
 
@@ -10,8 +10,13 @@ import { Korisnik } from '../models/korisnik';
   styleUrls: ['./prijava-teme.component.css'],
 })
 export class PrijavaTemeComponent implements OnInit {
-  public ulogovanKorisnik;
-  constructor(private prijavaServis: PrijavaService, private router: Router) {
+  ulogovanKorisnik;
+
+  constructor(
+    private prijavaServis: PrijavaService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.mentori = [];
   }
 
@@ -20,7 +25,33 @@ export class PrijavaTemeComponent implements OnInit {
     // ako postoji znaci da oce da je edituje i popuni postojece podatke
     // ako ne postoji znaci da je prvi put pravi i onda inicijalizuj novu prijavu praznu
 
+    this.activatedRoute.params.subscribe((params) => {
+      this.prijavaServis
+        .fetchPrijavaByStudentId(parseInt(params.id))
+        .subscribe((nadjenePrijave: Prijava[]) => {
+          if (nadjenePrijave.length === 0) {
+            // sve ook nova prijava
+            // this.prijava = new Prijava();
+          } else {
+            const prijava: Prijava = nadjenePrijave[0];
+
+            this.imePrezime = prijava.ImePrezime;
+            this.brojIndeksa = prijava.Indeks;
+            this.modul = prijava.Modul;
+            this.idRukovodioca = prijava.IdRukovodioca.toString();
+            this.rukovodilacChoice = prijava.RukovodilacAngazovan;
+            this.nazivPredmetaRukovodioca = prijava.RukovodilacPredmet;
+            this.naslovCirilica = prijava.NaslovSrb;
+            this.naslovEngleski = prijava.NaslovEng;
+            this.clanKomisije1 = prijava.PredlogDrugiClan;
+            this.clanKomisije2 = prijava.PredlogTreciClan;
+            this.mentor = prijava.PredlogMentor;
+          }
+        });
+    });
+
     this.ulogovanKorisnik = JSON.parse(localStorage.getItem('ulogovan'));
+
     this.prijavaServis
       .getMentori()
       .subscribe((mentori: { Id: number; Ime: string }[]) => {
@@ -28,9 +59,8 @@ export class PrijavaTemeComponent implements OnInit {
       });
   }
 
-  prijava: Prijava = new Prijava();
-
   mentori: { Id: number; Ime: string }[];
+
   imePrezime: string;
   brojIndeksa: string;
   modul: string;

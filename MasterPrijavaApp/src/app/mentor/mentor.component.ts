@@ -9,7 +9,7 @@ import { PrijavaService } from '../services/prijava.service';
   styleUrls: ['./mentor.component.css'],
 })
 export class MentorComponent implements OnInit {
-  listaPrijava: Prijava[];
+  listaPrijava: Prijava[] = [];
 
   constructor(private prijavaServis: PrijavaService, private router: Router) {}
 

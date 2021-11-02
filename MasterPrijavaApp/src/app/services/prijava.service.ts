@@ -61,11 +61,34 @@ export class PrijavaService {
     return this.http.get(`${this.baseUri}/prijava?id=${id}`);
   }
 
+  // vraca prazan niz ako nnije pronadjena prijava, ili vraca niz sa 1 prijavom ako je pronadjena u bazi
+  fetchPrijavaByStudentId(studentId: number) {
+    return this.http.get(
+      `${this.baseUri}/prijavaByStudent?studentId=${studentId}`
+    );
+  }
+
   getPrijavaByStudentId(id: number) {
     return this.svePrijave.find((p) => p.StudentId === id);
   }
 
   sendKomentar(komentar: string, id: number) {
     return this.http.put(`${this.baseUri}/komentar`, { komentar, id });
+  }
+
+  updateAndSubmit(
+    id: number,
+    predmet: string,
+    oblast: string,
+    cilj: string,
+    ocekivaniRezultat: string
+  ) {
+    this.prijava.Id = id;
+    this.prijava.Predmet = predmet;
+    this.prijava.Oblast = oblast;
+    this.prijava.Cilj = cilj;
+    this.prijava.OcekivaniRezultat = ocekivaniRezultat;
+
+    return this.http.put(`${this.baseUri}/izmeniPrijavu`, this.prijava);
   }
 }

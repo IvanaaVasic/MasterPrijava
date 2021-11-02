@@ -17,6 +17,8 @@ export class PregledPrijaveComponent implements OnInit {
 
   prijava: Prijava;
 
+  private studentId: number;
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.prijavaService
@@ -24,11 +26,12 @@ export class PregledPrijaveComponent implements OnInit {
         .subscribe((prijava: Prijava) => {
           this.prijava = prijava;
           this.prijavaService.prijava = prijava;
+          this.studentId = prijava.StudentId;
         });
     });
   }
 
   izmeniPrijavu() {
-    this.router.navigate(['/prijava']);
+    this.router.navigate([`/prijava/${this.studentId}`]);
   }
 }

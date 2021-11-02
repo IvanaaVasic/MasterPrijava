@@ -29,5 +29,6 @@ export class ObrazlozenjeMentorComponent implements OnInit {
     this.prijavaService
       .sendKomentar(this.komentar, this.prijava.Id)
       .subscribe((res) => {});
+    this.router.navigate(['/mentor']);
   }
 }

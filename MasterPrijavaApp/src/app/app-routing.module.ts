@@ -14,7 +14,7 @@ import { UspesnaPrijavaComponent } from './uspesna-prijava/uspesna-prijava.compo
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'prijava', component: PrijavaTemeComponent },
+  { path: 'prijava/:id', component: PrijavaTemeComponent },
   { path: 'obrazlozenje', component: ObrazlozenjeComponent },
   { path: 'biografija', component: BiografijaComponent },
   { path: 'mentor', component: MentorComponent },

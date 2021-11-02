@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       if (prijava) {
         this.router.navigate([`pregled-prijave/${prijava.Id}`]);
       } else {
-        this.router.navigate(['/prijava']);
+        this.router.navigate([`/prijava/${korisnik.Id}`]);
       }
     });
   }

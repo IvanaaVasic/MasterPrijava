@@ -112,6 +112,79 @@ app.put("/posaljiPrijavu", (req, res) => {
   );
 });
 
+app.put("/izmeniPrijavu", (req, res) => {
+  const {
+    Id,
+    ImePrezime,
+    Indeks,
+    Modul,
+    IdRukovodioca,
+    Rukovodilac,
+    RukovodilacAngazovan,
+    RukovodilacPredmet,
+    NaslovSrb,
+    NaslovEng,
+    PredlogMentor,
+    PredlogDrugiClan,
+    PredlogTreciClan,
+    Biografija,
+    Cilj,
+    Predmet,
+    Oblast,
+    OcekivaniRezultat,
+    StudentId,
+  } = req.body;
+
+  connection.query(
+    `UPDATE prijava SET
+      ImePrezime = ?,
+      Indeks = ?,
+      Modul = ?,
+      IdRukovodioca = ?,
+      Rukovodilac = ?,
+      RukovodilacAngazovan = ?,
+      RukovodilacPredmet = ?,
+      NaslovSrb = ?,
+      NaslovEng = ?,
+      PredlogMentor = ?,
+      PredlogDrugiClan = ?,
+      PredlogTreciClan = ?,
+      Biografija = ?,
+      Cilj = ?,
+      Predmet = ?,
+      Oblast = ?,
+      OcekivaniRezultat = ?,
+      StudentId = ?,
+      Pregledano = 0
+      WHERE Id = ?`,
+    [
+      ImePrezime,
+      Indeks,
+      Modul,
+      IdRukovodioca,
+      Rukovodilac,
+      RukovodilacAngazovan,
+      RukovodilacPredmet,
+      NaslovSrb,
+      NaslovEng,
+      PredlogMentor,
+      PredlogDrugiClan,
+      PredlogTreciClan,
+      Biografija,
+      Cilj,
+      Predmet,
+      Oblast,
+      OcekivaniRezultat,
+      StudentId,
+      Id,
+    ],
+    (err, result) => {
+      if (err) throw err;
+      res.send();
+    }
+  );
+});
+
 //Prijave koje su popunili studenti dohvatamo i dajemo mentoru podatke na uvid
 app.get("/prijave", (req, res) => {
   connection.query("SELECT * FROM Prijava", [], (err, result) => {
@@ -125,6 +198,14 @@ app.get("/prijava", (req, res) => {
   connection.query("SELECT * FROM Prijava WHERE Id = ?", [id], (err, result) => {
     if (err) throw err;
     res.send(result[0]);
+  });
+});
+
+app.get("/prijavaByStudent", (req, res) => {
+  const { studentId } = req.query;
+  connection.query("SELECT * FROM Prijava WHERE StudentId = ?", [studentId], (err, result) => {
+    if (err) throw err;
+    res.send(result);
   });
 });
 

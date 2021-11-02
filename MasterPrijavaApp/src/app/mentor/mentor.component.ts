@@ -9,7 +9,7 @@ import { PrijavaService } from '../services/prijava.service';
   styleUrls: ['./mentor.component.css'],
 })
 export class MentorComponent implements OnInit {
-  listaPrijava;
+  listaPrijava: Prijava[];
 
   constructor(private prijavaServis: PrijavaService, private router: Router) {}
 
@@ -26,5 +26,9 @@ export class MentorComponent implements OnInit {
 
   prikaziPrijavu(prijava: Prijava) {
     this.router.navigate([`/prijavaMentor/${prijava.Id}`]);
+  }
+
+  nepregledanaLista() {
+    return this.listaPrijava.filter((prijava) => prijava.Pregledano === 0);
   }
 }

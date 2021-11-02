@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let prijava of listaPrijava">
+        <tr *ngFor="let prijava of nepregledanaLista()">
           <td>{{ prijava.Indeks }}</td>
           <td>{{ prijava.ImePrezime }}</td>
           <td>{{ prijava.Modul }}</td>

@@ -28,8 +28,6 @@ export class ObrazlozenjeMentorComponent implements OnInit {
   posaljiKomentar() {
     this.prijavaService
       .sendKomentar(this.komentar, this.prijava.Id)
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .subscribe((res) => {});
   }
 }

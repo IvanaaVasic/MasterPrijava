@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS Prijava (
 	Oblast VARCHAR (1000),
 	OcekivaniRezultat VARCHAR (1000),
 	KomentarMentora VARCHAR (2000),
-	StudentId INTEGER
+	StudentId INTEGER,
+	Pregledano TINYINT, 
 	PRIMARY KEY(Id)
 );
 

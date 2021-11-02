@@ -19,4 +19,5 @@ export class Prijava {
   OcekivaniRezultat: string;
   KomentarMentora: string;
   StudentId: number;
+  Pregledano: number; // 0 => false; 1 => true
 }

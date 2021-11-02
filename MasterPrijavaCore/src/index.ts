@@ -80,9 +80,10 @@ app.put("/posaljiPrijavu", (req, res) => {
       Predmet,
       Oblast,
       OcekivaniRezultat,
-      StudentId
+      StudentId,
+      Pregledano
       ) VALUES (
-       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0
       )`,
     [
       ImePrezime,
@@ -129,8 +130,12 @@ app.get("/mentori", (req, res) => {
 app.put("/komentar", (req, res) => {
   const { id, komentar } = req.body;
 
-  connection.query(`UPDATE prijava SET KomentarMentora = ? WHERE Id = ?`, [komentar, id], (err, result) => {
-    if (err) throw err;
-    res.send();
-  });
+  connection.query(
+    `UPDATE prijava SET KomentarMentora = ?, Pregledano = 1 WHERE Id = ?`,
+    [komentar, id],
+    (err, result) => {
+      if (err) throw err;
+      res.send();
+    }
+  );
 });

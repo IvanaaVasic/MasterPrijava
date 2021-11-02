@@ -58,4 +58,8 @@ export class PrijavaService {
   getPrijavaByStudentId(id: number) {
     return this.svePrijave.find((p) => p.StudentId === id);
   }
+
+  sendKomentar(komentar: string, id: number) {
+    return this.http.put(`${this.baseUri}/komentar`, { komentar, id });
+  }
 }

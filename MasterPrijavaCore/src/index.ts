@@ -106,7 +106,6 @@ app.put("/posaljiPrijavu", (req, res) => {
     ],
     (err, result) => {
       if (err) throw err;
-      console.log(result.affectedRows);
       res.send();
     }
   );
@@ -124,5 +123,14 @@ app.get("/mentori", (req, res) => {
   connection.query("SELECT Id, Ime FROM korisnici WHERE Tip='mentor'", [], (err, result) => {
     if (err) throw err;
     res.send(result);
+  });
+});
+
+app.put("/komentar", (req, res) => {
+  const { id, komentar } = req.body;
+
+  connection.query(`UPDATE prijava SET KomentarMentora = ? WHERE Id = ?`, [komentar, id], (err, result) => {
+    if (err) throw err;
+    res.send();
   });
 });

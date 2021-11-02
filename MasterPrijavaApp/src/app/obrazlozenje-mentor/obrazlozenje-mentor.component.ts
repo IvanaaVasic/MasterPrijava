@@ -16,10 +16,20 @@ export class ObrazlozenjeMentorComponent implements OnInit {
   ) {}
 
   prijava: Prijava;
+
+  komentar: string;
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.prijava = this.prijavaService.getPrijavaById(parseInt(params.id));
     });
   }
-  posaljiKomentar() {}
+
+  posaljiKomentar() {
+    this.prijavaService
+      .sendKomentar(this.komentar, this.prijava.Id)
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
 }

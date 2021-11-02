@@ -12,11 +12,11 @@ import { Korisnik } from '../models/korisnik';
 export class PrijavaTemeComponent implements OnInit {
   public ulogovanKorisnik;
   constructor(private prijavaServis: PrijavaService, private router: Router) {
-    this.mentori = [];    
+    this.mentori = [];
   }
 
   ngOnInit(): void {
-    this.ulogovanKorisnik = JSON.parse(localStorage.getItem("ulogovan"));
+    this.ulogovanKorisnik = JSON.parse(localStorage.getItem('ulogovan'));
     this.prijavaServis
       .getMentori()
       .subscribe((mentori: { Id: number; Ime: string }[]) => {
@@ -41,7 +41,6 @@ export class PrijavaTemeComponent implements OnInit {
     if (confirm('Da li zelite da prosledite Vasu prijavu?')) {
       const prijava = new Prijava();
 
-      
       prijava.ImePrezime = this.imePrezime;
       prijava.Indeks = this.brojIndeksa;
       prijava.Modul = this.modul;
@@ -56,7 +55,7 @@ export class PrijavaTemeComponent implements OnInit {
       prijava.PredlogMentor = this.mentor;
       prijava.PredlogDrugiClan = this.clanKomisije1;
       prijava.PredlogTreciClan = this.clanKomisije2;
-      prijava.studentId = this.ulogovanKorisnik.Id;
+      prijava.StudentId = this.ulogovanKorisnik.Id;
       console.log(prijava);
 
       this.prijavaServis.startPrijava(prijava);

@@ -21,27 +21,29 @@ CREATE TABLE IF NOT EXISTS Modul (
 	PRIMARY KEY(Id)
 );
 
-	CREATE TABLE IF NOT EXISTS Prijava (
-		Id	INTEGER NOT NULL AUTO_INCREMENT,
-		ImePrezime VARCHAR(100),
-		Indeks VARCHAR(20),
-		Modul VARCHAR(400),
-		Rukovodilac VARCHAR(100),
-		RukovodilacAngazovan VARCHAR(5),
-		RukovodilacPredmet VARCHAR(200),
-		NaslovSrb	VARCHAR(200),
-		NaslovEng	VARCHAR (200),
-		PredlogMentor	VARCHAR(100),
-		PredlogDrugiClan	VARCHAR(100),
-		PredlogTreciClan	VARCHAR(100),
-		Biografija 	VARCHAR(1000),
-		Cilj	VARCHAR(500),
-		Predmet VARCHAR(200),
-		Oblast VARCHAR (1000),
-		OcekivaniRezultat VARCHAR (1000),
-		KomentarMentora VARCHAR (2000)
-		PRIMARY KEY(Id)
-	);
+CREATE TABLE IF NOT EXISTS Prijava (
+	Id	INTEGER NOT NULL AUTO_INCREMENT,
+	ImePrezime VARCHAR(100),
+	Indeks VARCHAR(20),
+	Modul VARCHAR(400),
+	IdRukovodioca INT NULL,
+	Rukovodilac VARCHAR(100),
+	RukovodilacAngazovan VARCHAR(5),
+	RukovodilacPredmet VARCHAR(200),
+	NaslovSrb	VARCHAR(200),
+	NaslovEng	VARCHAR (200),
+	PredlogMentor	VARCHAR(100),
+	PredlogDrugiClan	VARCHAR(100),
+	PredlogTreciClan	VARCHAR(100),
+	Biografija 	VARCHAR(1000),
+	Cilj	VARCHAR(500),
+	Predmet VARCHAR(200),
+	Oblast VARCHAR (1000),
+	OcekivaniRezultat VARCHAR (1000),
+	KomentarMentora VARCHAR (2000),
+	StudentId INTEGER
+	PRIMARY KEY(Id)
+);
 
 
 
@@ -73,11 +75,10 @@ INSERT INTO Modul (Id,Naziv,RukovodiocId) VALUES (1,'Audio i video tehnologije',
 INSERT INTO Modul (Id,Naziv,RukovodiocId) VALUES (2,'Elektroenergetski sistemi',6);
 INSERT INTO Modul (Id,Naziv,RukovodiocId) VALUES (3,'Informaciono komunikacione tehnologije',5);
 
-INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId,ModulId) VALUES (1,'Angular primena na fakultetu','Bla bla nesto nesto','sadrzaj primer',2,3,2);
-INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId,ModulId) VALUES (2,'Mikrotalasi primena','Bla bla nestoooo nesto','sadrzaaaj primeriii',1,4,3);
+-- INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId, ModulId, StudentId) VALUES (1,'Angular primena na fakultetu','Bla bla nesto nesto','sadrzaj primer',2,3,2, 1);
+-- INSERT INTO Prijava (Id,Naslov,Cilj,Sadrzaj,KandidatId,MentorId, ModulId, StudentId) VALUES (2,'Mikrotalasi primena','Bla bla nestoooo nesto','sadrzaaaj primeriii',1,4,3,2);
 
-ALTER TABLE `masterprijava`.`prijava` 
-ADD COLUMN `IdRukovodioca` INT NULL AFTER `Modul`;
+
 ALTER TABLE `masterprijava`.`prijava` 
 ADD CONSTRAINT `IdRukovodioca`
   FOREIGN KEY (`IdRukovodioca`)

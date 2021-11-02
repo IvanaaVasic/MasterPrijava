@@ -3,7 +3,7 @@ export class Prijava {
   ImePrezime: string;
   Indeks: string;
   Modul: string;
-  IdRukovodioca: number;  
+  IdRukovodioca: number;
   Rukovodilac: string; //TODO izbaciti posto je dodat Id!
   RukovodilacAngazovan: string;
   RukovodilacPredmet: string;
@@ -17,5 +17,5 @@ export class Prijava {
   Predmet: string;
   Oblast: string;
   OcekivaniRezultat: string;
-  studentId: number;
+  StudentId: number;
 }

@@ -41,12 +41,11 @@ app.post("/login", (req, res) => {
 
 app.put("/posaljiPrijavu", (req, res) => {
   const {
-    Id,
     ImePrezime,
     Indeks,
     Modul,
     IdRukovodioca,
-    Rukovodilac,  //izbaciti
+    Rukovodilac, //izbaciti
     RukovodilacAngazovan,
     RukovodilacPredmet,
     NaslovSrb,
@@ -56,16 +55,14 @@ app.put("/posaljiPrijavu", (req, res) => {
     PredlogTreciClan,
     Biografija,
     Cilj,
-    Sadrzaj,
     Predmet,
     Oblast,
     OcekivaniRezultat,
-    studentId, 
+    StudentId,
   } = req.body;
 
   connection.query(
     `INSERT INTO prijava (
-      
       ImePrezime,
       Indeks,
       Modul,
@@ -83,9 +80,9 @@ app.put("/posaljiPrijavu", (req, res) => {
       Predmet,
       Oblast,
       OcekivaniRezultat,
-      studentId
+      StudentId
       ) VALUES (
-       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+       ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
       )`,
     [
       ImePrezime,
@@ -105,7 +102,7 @@ app.put("/posaljiPrijavu", (req, res) => {
       Predmet,
       Oblast,
       OcekivaniRezultat,
-      studentId,
+      StudentId,
     ],
     (err, result) => {
       if (err) throw err;

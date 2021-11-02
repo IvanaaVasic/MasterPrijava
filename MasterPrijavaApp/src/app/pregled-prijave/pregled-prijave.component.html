@@ -1,1 +1,26 @@
-<p>pregled-prijave works!</p>
+<div class="container">
+  <img src="../../assets/logoETF.png" class="logoETF" />
+  <h1>Već ste popunili prijavu!</h1>
+</div>
+<div class="komentari-table">
+  <table id="komentari">
+    <thead>
+      <tr>
+        <th>Komentar Mentora</th>
+        <th>Izmeni prijavu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="prijava?.Pregledano">
+        <td>
+          {{ prijava.KomentarMentora }}
+        </td>
+        <td>
+          <button type="button" (click)="izmeniPrijavu()" class="izmena">
+            Izmeni prijavu
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

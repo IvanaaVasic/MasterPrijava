@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'prijavaMentor/:id', component: PrijavaMentorComponent },
   { path: 'biografijaMentor/:id', component: BiografijaMentorComponent },
   { path: 'obrazlozenjeMentor/:id', component: ObrazlozenjeMentorComponent },
-  { path: 'pregled-prijave', component: PregledPrijaveComponent },
+  { path: 'pregled-prijave/:id', component: PregledPrijaveComponent },
 ];
 
 @NgModule({

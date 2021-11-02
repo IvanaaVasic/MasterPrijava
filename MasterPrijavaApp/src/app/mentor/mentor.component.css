@@ -7,7 +7,7 @@
 }
 
 .prijave-table {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .logoETF {
   animation-duration: 3s;
@@ -69,4 +69,7 @@
 button {
   border: none;
   outline: none;
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
 }

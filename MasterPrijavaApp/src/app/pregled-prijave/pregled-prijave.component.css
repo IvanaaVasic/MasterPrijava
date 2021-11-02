@@ -1,0 +1,78 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+.container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logoETF {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 170px;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 170px;
+  }
+}
+
+#komentari {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80vw;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#komentari td,
+#komentari th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#komentari tr:nth-child(even) {
+  background-color: #d8d7d7;
+}
+
+#komentari tr:hover {
+  background-color: #ddd;
+}
+
+#komentari th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #83161a;
+  color: white;
+}
+.izmena {
+  width: 100px;
+  height: 30px;
+  background-color: #83161a;
+  border-radius: 33.5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+button {
+  border: none;
+  outline: none;
+}

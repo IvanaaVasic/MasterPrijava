@@ -51,8 +51,14 @@ export class PrijavaService {
     return this.http.get(`${this.baseUri}/mentori`);
   }
 
-  getPrijavaById(id: number) {
+  // vraca prijavu iz preloadovanih svih prijava
+  getPrijavaById(id: number): Prijava {
     return this.svePrijave.find((p) => p.Id === id);
+  }
+
+  // vraca prijavu (promise) direktno sa backenda
+  fetchPrijavaById(id: number) {
+    return this.http.get(`${this.baseUri}/prijava?id=${id}`);
   }
 
   getPrijavaByStudentId(id: number) {

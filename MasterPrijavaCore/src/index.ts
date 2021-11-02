@@ -120,6 +120,14 @@ app.get("/prijave", (req, res) => {
   });
 });
 
+app.get("/prijava", (req, res) => {
+  const { id } = req.query;
+  connection.query("SELECT * FROM Prijava WHERE Id = ?", [id], (err, result) => {
+    if (err) throw err;
+    res.send(result[0]);
+  });
+});
+
 app.get("/mentori", (req, res) => {
   connection.query("SELECT Id, Ime FROM korisnici WHERE Tip='mentor'", [], (err, result) => {
     if (err) throw err;

@@ -23,9 +23,12 @@ export class PregledPrijaveComponent implements OnInit {
         .fetchPrijavaById(parseInt(params.id))
         .subscribe((prijava: Prijava) => {
           this.prijava = prijava;
+          this.prijavaService.prijava = prijava;
         });
     });
   }
 
-  izmeniPrijavu() {}
+  izmeniPrijavu() {
+    this.router.navigate(['/prijava']);
+  }
 }

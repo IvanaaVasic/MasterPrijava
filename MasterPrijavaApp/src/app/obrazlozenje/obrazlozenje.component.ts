@@ -40,31 +40,3 @@ export class ObrazlozenjeComponent implements OnInit {
     this.router.navigate(['/uspesno']);
   }
 }
-
-/*
-
-class MentorLista  {
-
-  constructor(service:prijavaService){}
-
-  prijave: Prijava[]
-
-  ngOnInit() {
-    this.prijavaService.getAllPrijave().subscribbe( (prijave: Prijava[]) =>{
-      this.prijave = prijave
-    })
-    
-  }
-}
-
-
-// u htmlu (templejtu)
-  <div>
-
-    <div *ngFor="prijava of prijave">
-      {{prijava.ime}}.  {{proijava.indeks}}
-    </div>
-
-  </div>
-
- */

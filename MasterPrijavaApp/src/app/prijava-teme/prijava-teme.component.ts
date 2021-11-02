@@ -16,6 +16,10 @@ export class PrijavaTemeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // dohvati prijavu ovog korisnnika iz prijavaService.getPrijavaByStudentId()
+    // ako postoji znaci da oce da je edituje i popuni postojece podatke
+    // ako ne postoji znaci da je prvi put pravi i onda inicijalizuj novu prijavu praznu
+
     this.ulogovanKorisnik = JSON.parse(localStorage.getItem('ulogovan'));
     this.prijavaServis
       .getMentori()
@@ -23,6 +27,8 @@ export class PrijavaTemeComponent implements OnInit {
         this.mentori = mentori;
       });
   }
+
+  prijava: Prijava = new Prijava();
 
   mentori: { Id: number; Ime: string }[];
   imePrezime: string;
@@ -38,28 +44,25 @@ export class PrijavaTemeComponent implements OnInit {
   mentor: string;
 
   posaljiPrijavu() {
-    if (confirm('Da li zelite da prosledite Vasu prijavu?')) {
-      const prijava = new Prijava();
+    const prijava = new Prijava();
 
-      prijava.ImePrezime = this.imePrezime;
-      prijava.Indeks = this.brojIndeksa;
-      prijava.Modul = this.modul;
-      prijava.IdRukovodioca = Number(this.idRukovodioca);
-      prijava.Rukovodilac = this.mentori.find(
-        (m) => m.Id === Number(this.idRukovodioca)
-      ).Ime; // Izbaciti kad i polje iz modela prijava
-      prijava.RukovodilacAngazovan = this.rukovodilacChoice;
-      prijava.RukovodilacPredmet = this.nazivPredmetaRukovodioca;
-      prijava.NaslovSrb = this.naslovCirilica;
-      prijava.NaslovEng = this.naslovEngleski;
-      prijava.PredlogMentor = this.mentor;
-      prijava.PredlogDrugiClan = this.clanKomisije1;
-      prijava.PredlogTreciClan = this.clanKomisije2;
-      prijava.StudentId = this.ulogovanKorisnik.Id;
-      console.log(prijava);
+    prijava.ImePrezime = this.imePrezime;
+    prijava.Indeks = this.brojIndeksa;
+    prijava.Modul = this.modul;
+    prijava.IdRukovodioca = Number(this.idRukovodioca);
+    prijava.Rukovodilac = this.mentori.find(
+      (m) => m.Id === Number(this.idRukovodioca)
+    ).Ime; // Izbaciti kad i polje iz modela prijava
+    prijava.RukovodilacAngazovan = this.rukovodilacChoice;
+    prijava.RukovodilacPredmet = this.nazivPredmetaRukovodioca;
+    prijava.NaslovSrb = this.naslovCirilica;
+    prijava.NaslovEng = this.naslovEngleski;
+    prijava.PredlogMentor = this.mentor;
+    prijava.PredlogDrugiClan = this.clanKomisije1;
+    prijava.PredlogTreciClan = this.clanKomisije2;
+    prijava.StudentId = this.ulogovanKorisnik.Id;
 
-      this.prijavaServis.startPrijava(prijava);
-    }
+    this.prijavaServis.startPrijava(prijava);
 
     this.router.navigate(['/biografija']);
   }
